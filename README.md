@@ -2,6 +2,12 @@
 
 This script retrieves the daily pic published by NASA on their website. It uses the APOD API to do so, storing the image in a directory. If you run he script daily through your prefered IDE, you'll have a new picture every day.
 
+Before running, you need to install the required modules (I'd recommend using a virtual environment) using this command:
+
+```
+pip install requirements.txt
+```
+
 Note that the script won't run correctly until you get an API KEY from https://api.nasa.gov/. When you do have it, copy and paste it as the value of the environment variable API_KEY, at the start of the script.
 
 To avoid running the script manually, follow these steps:
