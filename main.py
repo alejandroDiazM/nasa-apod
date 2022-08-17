@@ -17,7 +17,6 @@ def todays_image():
     except requests.exceptions.HTTPError as err1:
         logging.info(f"{err1}. (Failed connection to the API, check the date and API Key for errors).")
     
-    
     try:
         if (apod["media_type"] == "image"):
             if ("hdurl" in apod.keys()):
@@ -29,15 +28,11 @@ def todays_image():
                 urllib.request.urlretrieve(url=apod["hdurl"], filename=os.path.join(image_dir, title))
             
                 if("title" in apod.keys()):
-                    print(apod["title"])
-                    print("\n")
-                if("explanation" in apod.keys()):
-                    print(apod["explanation"])
+                    logging.info("Downloaded '" + apod["title"] + "'.")
         else:
             logging.debug("Image not available.")
     except UnboundLocalError as err2:
         logging.info(f"{err2}. (Likely, the connection to the API failed).")
         
-
 if __name__=="__main__":
     todays_image()
